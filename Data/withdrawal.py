@@ -51,30 +51,30 @@ class Ui_Withdrawal(object):
         messageBox = QtWidgets.QMessageBox()
         messageBox.setIcon(QtWidgets.QMessageBox.Warning)
         messageBox.setWindowTitle(title)
-        messageBox.setText(message) 
+        messageBox.setText(message)
         messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
         messageBox.exec_()
-    
+
     def amt(self):
         txt = self.line_withDrawal.text()
-        if txt.isdigit() == True:    
+        if txt.isdigit() == True and self.mult(txt) == True:
             txt = int(txt)
             a = self.mult(txt)
             self.withdrawalMessage("Success!!!","You've successfully withdrawal amount. You will shortly receive confirmation message.")
         else:
             self.withdrawalMessage("ValueError", "You have entered wrong amount. Please enter correct amount")
-        
+
         # if txt>=0 and a == True:
         #     self.withdrawalMessage("Success!!!","You've successfully withdrawal amount")
-        #     
+        #
         # else:
         #     self.withdrawalMessage("Wrong Amount", "Please enter correct amount")
-            # 
+            #
 
         # to check whether it is multiple of 500 or not
     def mult(self,x):
-        for i in range(0,x):
-            if i%500==0:
-                return True
-            else:
-                return False
+        x = int(x)
+        if x%500==0:
+            return True
+        else:
+            return False

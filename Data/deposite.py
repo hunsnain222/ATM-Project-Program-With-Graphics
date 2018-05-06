@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'deposite.ui'
+# Form implementation generated from reading ui file 'deposit.ui'
 #
 # Created by: PyQt5 UI code generator 5.6
 #
@@ -51,8 +51,8 @@ class Ui_Deposite(object):
         Dialog.setWindowTitle(_translate("Dialog", "ATM Official Project"))
         self.label.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600;\">Enter amount to be deposited</span></p></body></html>"))
         self.label_3.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600;\">State Bank of Pakistan</span></p></body></html>"))
-        self.b_okAmt.setText(_translate("Dialog", "Deposite"))
- 
+        self.b_okAmt.setText(_translate("Dialog", "Deposit"))
+
         self.b_okAmt.clicked.connect(self.amt)
         self.label_4.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:9pt; font-weight:600; color:#5c3566;\">In case of any issue/query Contact us</span></p></body></html>"))
 
@@ -69,11 +69,11 @@ class Ui_Deposite(object):
         txt = self.line_amount.text()
         if txt.isdigit() == True:
             # txt = float(txt)
-            self.amtAdded("Success!!!","Your amount was added, You will shortly receive conofirmation message")
+            self.amtAdded("Success!!!","Your amount was added, You will shortly receive confirmation message")
         else:
             self.amtAdded("ValueError","Enter some handsome amount")
-            
-            
-            
+
+
+
     def done(self):
         sys.exit()

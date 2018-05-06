@@ -59,7 +59,7 @@ class Ui_MainWindow(object):
         self.b_deposite = QtWidgets.QPushButton(self.centralwidget)
         self.b_deposite.setGeometry(QtCore.QRect(390, 120, 149, 40))
         self.b_deposite.setStyleSheet("background-color:rgb(228, 228, 236)")
-        self.b_deposite.setObjectName("b_deposite")
+        self.b_deposite.setObjectName("b_deposit")
         self.b_other = QtWidgets.QPushButton(self.centralwidget)
         self.b_other.setGeometry(QtCore.QRect(390, 270, 149, 41))
         self.b_other.setObjectName("b_other")
@@ -91,7 +91,7 @@ class Ui_MainWindow(object):
         self.b_transfer.setText(_translate("MainWindow", "Transfer"))
         self.b_balance.setText(_translate("MainWindow", "Balance"))
         self.b_balance.clicked.connect(self.message_balance)
-        self.b_deposite.setText(_translate("MainWindow", "Deposite"))
+        self.b_deposite.setText(_translate("MainWindow", "Deposit"))
         self.b_deposite.clicked.connect(self.deposite_amt)
         self.b_transfer.clicked.connect(self.transfer_amt)
         self.b_other.setText(_translate("MainWindow", "Other"))
@@ -105,19 +105,19 @@ class Ui_MainWindow(object):
         self.ud = Ui_Deposite()
         self.ud.setupUi(self.depositeWindow)
         self.depositeWindow.show()
-    
+
     def withdrawal_amt(self):
         self.withdrawal = QtWidgets.QMainWindow()
         self.wd=Ui_Withdrawal() # object of withdrawal class
         self.wd.setupUi(self.withdrawal)
         self.withdrawal.show()
-        
+
     def transfer_amt(self):
         self.transfer = QtWidgets.QMainWindow()
         self.td = Ui_Transfer()
         self.td.setupUi(self.transfer)
         self.transfer.show()
-        
+
     def message_balance(self):
         messageBox = QtWidgets.QMessageBox()
         # messageBox.setIcon(QtWidgets.QMessageBox.Warning)
@@ -133,7 +133,7 @@ class Ui_MainWindow(object):
         messageBox.setText("Your request for Mini-Statement is received. You will shortly receive info through your registered email/phone")
         messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
         messageBox.exec_()
-        
+
     def message_other(self):
         messageBox = QtWidgets.QMessageBox()
         # messageBox.setIcon(QtWidgets.QMessageBox.Warning)
