@@ -9,7 +9,7 @@ import os
 import csv
 from PyQt5 import QtCore, QtGui, QtWidgets
 from Data.welcome import *
-from Data.deposite import Ui_Deposite 
+from Data.deposite import Ui_Deposite
 
 
 class Ui_Dialog(object):
@@ -65,6 +65,7 @@ class Ui_Dialog(object):
         self.line_pin.setToolTip(_translate("Dialog", "<html><head/><body><p align=\"center\">Enter 4-Digin PIN</p></body></html>"))
         self.b_new.setToolTip(_translate("Dialog", "<html><head/><body><p>Contact the Bank in order to be part of State Bank of Pakistan</p></body></html>"))
         self.b_new.setText(_translate("Dialog", "Create Account"))
+        self.b_new.clicked.connect(self.message_createAccount)
         self.b_login.setText(_translate("Dialog", "Login"))
         self.b_login.clicked.connect(self.loginCheck)
         self.pushButton_3.setText(_translate("Dialog", "Exit"))
@@ -85,23 +86,29 @@ class Ui_Dialog(object):
         messageBox = QtWidgets.QMessageBox()
         messageBox.setIcon(QtWidgets.QMessageBox.Warning)
         messageBox.setWindowTitle(title)
-        messageBox.setText(message) 
+        messageBox.setText(message)
         messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
         messageBox.exec_()
-        
+
     ### authenticate use and pin
-    def loginCheck(self):        
+    def loginCheck(self):
         username = self.line_cardNo.text()
         pin  = self.line_pin.text()
         d =self.data()
         # print(d)
-        if username in d.keys() or pin in d[username]:
+        if username in d.keys() and pin in d[username]:
             print("Access Granted:")
             self.userWelcome()
         else:
             self.messageFailure("Access Not Granted","Contact bank in case of forgot PIN")
 
-
+    def message_createAccount(self):
+        messageBox = QtWidgets.QMessageBox()
+        messageBox.setIcon(QtWidgets.QMessageBox.Warning)
+        messageBox.setWindowTitle("Contact Bank")
+        messageBox.setText("Please contact bank for activating new account or visit bank website\nwww.easylife-coding.com")
+        messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+        messageBox.exec_()
     def exit(self):
         print("GoodBye")
         sys.exit()
@@ -109,7 +116,7 @@ class Ui_Dialog(object):
         self.terminate()
 #### file handling, for getting user data ###
     def join(self):
-        directory = "/home/husnain222/Documents/atm/Data"
+        directory = "Data"
         name = "usersdata.csv"
         filename = os.path.join(directory, name)
         return filename
@@ -145,4 +152,3 @@ if __name__ == '__main__':
     ui.setupUi(Dialog)
     Dialog.show()
     sys.exit(app.exec_())
-    

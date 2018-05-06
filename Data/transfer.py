@@ -52,8 +52,6 @@ class Ui_Transfer(object):
         txt = self.line_withDrawal.text()
         if txt.isdigit() == True:
             # txt = float(txt)
-            self.message_transfer("Success!!!","Your amount was added, You will shortly receive conofirmation message")
+            self.message_transfer("Success!!!","Your amount was added, You will shortly receive confirmation message")
         else:
             self.message_transfer("ValueError","Enter some handsome amount")
-            
-            
