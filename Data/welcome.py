@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'welcome.ui'
-#
-# Created by: PyQt5 UI code generator 5.6
-#
-# WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from Data.deposite import *
@@ -14,76 +7,35 @@ from Data.transfer import *
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(571, 392)
-        icon = QtGui.QIcon.fromTheme("qt")
-        MainWindow.setWindowIcon(icon)
-        MainWindow.setStyleSheet("QMainWindow\n"
-"{\n"
-"background-color:rgb(156, 217, 255);\n"
-"background: url(:/home/husnain222/Documents/atm.png)\n"
-"}\n"
-"QDialog{\n"
-"background-color:rgb(196, 185, 255);\n"
-"background: url(:/home/husnain222/Documents/atm.png)\n"
-"}\n"
-"QLineEdit\n"
-"{\n"
-"background-color:rgb(170, 255, 255)\n"
-"}\n"
-"QPushButton\n"
-"{\n"
-"    background-color:rgb(238, 238, 236);\n"
-"}\n"
-"QLabel\n"
-"{\n"
-"background-color:rgb(238, 238, 236);\n"
-"border-color:rgb(46, 52, 54)\n"
-"}")
-        MainWindow.setTabShape(QtWidgets.QTabWidget.Triangular)
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
-        self.centralwidget.setObjectName("centralwidget")
-        self.b_withdrawal = QtWidgets.QPushButton(self.centralwidget)
-        self.b_withdrawal.setGeometry(QtCore.QRect(60, 120, 159, 41))
-        self.b_withdrawal.setStyleSheet("background-color: rgb(228, 228, 229);\n"
-"")
-        self.b_withdrawal.setObjectName("b_withdrawal")
-        self.b_mini = QtWidgets.QPushButton(self.centralwidget)
-        self.b_mini.setGeometry(QtCore.QRect(60, 190, 159, 41))
-        self.b_mini.setObjectName("b_mini")
+        MainWindow.setFixedSize(572,395)
+ 
+
+        self.centralwidget = QtWidgets.QWidget(MainWindow) # Here' we created a object
+        
+        self.b_withdrawal = QtWidgets.QPushButton(self.centralwidget)  # here, withdrawal button is created
+        self.b_withdrawal.setGeometry(QtCore.QRect(60, 120, 159, 41)) # here its position is defined
+        self.b_mini = QtWidgets.QPushButton(self.centralwidget) # here miniStatement button is created
+        self.b_mini.setGeometry(QtCore.QRect(60, 190, 159, 41)) # here its positions is defined
         self.b_transfer = QtWidgets.QPushButton(self.centralwidget)
         self.b_transfer.setGeometry(QtCore.QRect(60, 270, 159, 41))
-        self.b_transfer.setObjectName("b_transfer")
         self.b_balance = QtWidgets.QPushButton(self.centralwidget)
         self.b_balance.setGeometry(QtCore.QRect(390, 190, 149, 41))
-        self.b_balance.setObjectName("b_balance")
         self.b_deposite = QtWidgets.QPushButton(self.centralwidget)
         self.b_deposite.setGeometry(QtCore.QRect(390, 120, 149, 40))
-        self.b_deposite.setStyleSheet("background-color:rgb(228, 228, 236)")
-        self.b_deposite.setObjectName("b_deposit")
         self.b_other = QtWidgets.QPushButton(self.centralwidget)
         self.b_other.setGeometry(QtCore.QRect(390, 270, 149, 41))
-        self.b_other.setObjectName("b_other")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(80, 20, 421, 41))
-        self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(190, 70, 211, 31))
-        self.label_2.setObjectName("label_2")
         MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 571, 22))
-        self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow) # it will connect and tranlate the functions/names
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "ATM Official Project"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Sala from Kasur"))
         self.b_withdrawal.setText(_translate("MainWindow", "Withdrawal"))
         self.b_withdrawal.clicked.connect(self.withdrawal_amt)
         self.b_mini.setText(_translate("MainWindow", "Mini Statement"))
@@ -92,7 +44,7 @@ class Ui_MainWindow(object):
         self.b_balance.setText(_translate("MainWindow", "Balance"))
         self.b_balance.clicked.connect(self.message_balance)
         self.b_deposite.setText(_translate("MainWindow", "Deposit"))
-        self.b_deposite.clicked.connect(self.deposite_amt)
+        self.b_deposite.clicked.connect(self.deposite_amt) # It will connect the button 
         self.b_transfer.clicked.connect(self.transfer_amt)
         self.b_other.setText(_translate("MainWindow", "Other"))
         self.b_other.clicked.connect(self.message_other)
@@ -105,7 +57,12 @@ class Ui_MainWindow(object):
         self.ud = Ui_Deposite()
         self.ud.setupUi(self.depositeWindow)
         self.depositeWindow.show()
-
+    # this method for checking balance as well
+    def balance_info(self):
+        self.balanceWindow = QtWidgets.QDialog()
+        self.bu = Ui_confirm()
+        self.bu.setupUi(self.balanceWindow)
+        self.balanceWindow.show()
     def withdrawal_amt(self):
         self.withdrawal = QtWidgets.QMainWindow()
         self.wd=Ui_Withdrawal() # object of withdrawal class
@@ -120,24 +77,24 @@ class Ui_MainWindow(object):
 
     def message_balance(self):
         messageBox = QtWidgets.QMessageBox()
-        # messageBox.setIcon(QtWidgets.QMessageBox.Warning)
+        messageBox.setIcon(QtWidgets.QMessageBox.Information)
         messageBox.setWindowTitle("Success!!!")
         messageBox.setText("Your request for checking balance is received. You will shortly receive info through your registered email/phone")
         messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
         messageBox.exec_()
-
+    
     def message_mini(self):
         messageBox = QtWidgets.QMessageBox()
-        # messageBox.setIcon(QtWidgets.QMessageBox.)
+        messageBox.setIcon(QtWidgets.QMessageBox.Information)
         messageBox.setWindowTitle("Success!!!")
         messageBox.setText("Your request for Mini-Statement is received. You will shortly receive info through your registered email/phone")
-        messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+        messageBox.setStandardButtons(QtWidgets.QMessageBox.Save)
         messageBox.exec_()
 
     def message_other(self):
         messageBox = QtWidgets.QMessageBox()
-        # messageBox.setIcon(QtWidgets.QMessageBox.Warning)
+        messageBox.setIcon(QtWidgets.QMessageBox.Question)
         messageBox.setWindowTitle("Suggest ideas")
-        messageBox.setText("Please feel free to email us what should be else consisted in the project\nfast@nu.edu.pk")
+        messageBox.setText("Please feel free to email us what should be else consisted in the project\nwww.easylife-coding.com")
         messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
         messageBox.exec_()

@@ -8,7 +8,8 @@ import sys
 class Ui_Transfer(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(400, 300)
+        # Form.resize(400, 300)
+        Form.setFixedSize(400,300) 
         self.line_withDrawal = QtWidgets.QLineEdit(Form)
         self.line_withDrawal.setGeometry(QtCore.QRect(80, 140, 261, 41))
         self.line_withDrawal.setStyleSheet("background-color:rgb(186, 189, 182)")
@@ -41,17 +42,23 @@ class Ui_Transfer(object):
 
 
 
-    def message_transfer(self,title,message):
+    def tranfser_warning(self,title,message):
         messageBox = QtWidgets.QMessageBox()
-        messageBox.setIcon(QtWidgets.QMessageBox.Warning)
+        messageBox.setIcon(QtWidgets.QMessageBox.Critical)
         messageBox.setWindowTitle(title)
         messageBox.setText(message)
-        messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+        messageBox.setStandardButtons(QtWidgets.QMessageBox.Cancel)
+        messageBox.exec_()
+    def transfer_information(self,title,message):
+        messageBox = QtWidgets.QMessageBox()
+        messageBox.setIcon(QtWidgets.QMessageBox.Information)
+        messageBox.setText(message)
+        messageBox.setStandardButtons(QtWidgets.QMessageBox.Save)
         messageBox.exec_()
     def amt(self):
         txt = self.line_withDrawal.text()
         if txt.isdigit() == True:
             # txt = float(txt)
-            self.message_transfer("Success!!!","Your amount was added, You will shortly receive confirmation message")
+            self.transfer_information("Success!!!","Your amount was added, You will shortly receive confirmation message")
         else:
-            self.message_transfer("ValueError","Enter some handsome amount")
+            self.tranfser_warning("ValueError","Enter some handsome amount")
