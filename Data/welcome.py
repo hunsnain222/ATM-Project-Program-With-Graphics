@@ -35,7 +35,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Sala from Kasur"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "ATM Offical Project"))
         self.b_withdrawal.setText(_translate("MainWindow", "Withdrawal"))
         self.b_withdrawal.clicked.connect(self.withdrawal_amt)
         self.b_mini.setText(_translate("MainWindow", "Mini Statement"))
