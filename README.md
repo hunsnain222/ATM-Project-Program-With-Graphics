@@ -1,7 +1,7 @@
 # GUI-Integrated ATM-Project
 
 ## (Beta Version)
-A Project by Hasnain Kazmi and Faizan Ahmad(Backend conding).                                                                     
+A Project by Hasnain Kazmi 
 It is developed in python3 using pyqt5.
 
 ### To Run:
